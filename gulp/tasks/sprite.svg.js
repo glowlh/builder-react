@@ -2,10 +2,10 @@
 
 module.exports = function() {
   $.gulp.task('sprite:svg', function() {
-    let svgminConfig = { js2svg: { pretty: true } };
+    const svgminConfig = { js2svg: { pretty: true } };
 
-    let cheerioConfig = {
-      run: function($) {
+    const cheerioConfig = {
+      run($) {
         $('[fill]').removeAttr('fill');
         $('[stroke]').removeAttr('stroke');
         $('[style]').removeAttr('style');
@@ -13,10 +13,10 @@ module.exports = function() {
       parserOptions: { xmlMode: true }
     };
 
-    let svgSpriteConfig = {
+    const svgSpriteConfig = {
       mode: {
         symbol: {
-          sprite: "../sprite.svg"
+          sprite: '../sprite.svg'
         }
       }
     };

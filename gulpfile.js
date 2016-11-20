@@ -25,7 +25,7 @@ global.$ = {
 
 // TASKS
 // - - - - - - - - - - - - - - -
-$.path.tasks.forEach(taskPath =>  require(taskPath)());
+$.path.tasks.forEach(taskPath => require(taskPath)());
 
 $.gulp.task('default', $.gulp.series(
   'clean',
@@ -45,7 +45,7 @@ $.gulp.task('default', $.gulp.series(
 ));
 
 $.gulp.task('build', $.gulp.series(
-  cb => {$.dev = false; cb()},
+  (cb) => { $.dev = false; cb(); },
   'clean',
   $.gulp.parallel(
     'sass',

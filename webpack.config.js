@@ -4,24 +4,31 @@ const path = require('path');
 const webpack = require('webpack');
 const validate = require('webpack-validator');
 
-let nodeModulesDirectories = path.join(__dirname, 'node_modules');
-let modulesDirectories = [nodeModulesDirectories];
-let inputPath = path.join(__dirname, './source/js/');
+const nodeModulesDirectories = path.join(__dirname, 'node_modules');
+const modulesDirectories = [nodeModulesDirectories];
+const inputPath = path.join(__dirname, './source/js/');
 
-let plugins = [
+const plugins = [
 
   new webpack.NoErrorsPlugin(),
 
-  new webpack.optimize.CommonsChunkPlugin('foundation', 'foundation.js'),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'foundation',
+    filename: 'foundation.js'
+  }),
 
-  new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__': '__PROD__') }),
+  new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__' : '__PROD__') }),
 
-  new webpack.ProvidePlugin({ $: 'jquery' })
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery'
+  })
 ];
 
-let loaders = [
+const loaders = [
 
-  { test: /\.html$/, loader: 'ngtemplate?relativeTo=' + inputPath + '!html' },
+  { test: /\.html$/, loader: `ngtemplate?relativeTo=${inputPath}!html` },
 
   { test: /\.json$/, loader: 'json' },
 
@@ -45,55 +52,55 @@ if (!$.dev) {
   );
 }
 
-let webpackConfig = {
+const webpackConfig = {
 
-    context: path.resolve(__dirname, 'source/js'),
+  context: path.resolve(__dirname, 'source/js'),
 
-    entry: {
-      app: './app.js',
-      foundation: []
-    },
+  entry: {
+    app: './app.js',
+    foundation: []
+  },
 
-    output: {
-      path: path.join(__dirname, $.config.root, '/assets/js'),
-      filename: '[name].js'
-    },
+  output: {
+    path: path.join(__dirname, $.config.root, '/assets/js'),
+    filename: '[name].js'
+  },
 
-    watch: $.dev,
+  watch: $.dev,
 
-    watchOptions: {
-      aggregateTimeout: 100
-    },
+  watchOptions: {
+    aggregateTimeout: 100
+  },
 
-    devtool: $.dev ? 'inline-source-map' : undefined,
+  devtool: $.dev ? 'inline-source-map' : undefined,
 
-    module: {
-      loaders,
-      noParse: []
-    },
+  module: {
+    loaders,
+    noParse: []
+  },
 
-    plugins,
+  plugins,
 
-    resolve: {
-      modulesDirectories,
-      extensions: ['', '.js'],
-      alias: {}
-    },
+  resolve: {
+    modulesDirectories,
+    extensions: ['', '.js'],
+    alias: {}
+  },
 
-    resolveLoader: {
-      modulesDirectories,
-      moduleTemplates: ['*-loader', '*'],
-      extensions: ['', '.js']
-    }
+  resolveLoader: {
+    modulesDirectories,
+    moduleTemplates: ['*-loader', '*'],
+    extensions: ['', '.js']
+  }
 };
 
-$.path.foundation.forEach(dependency => {
-  var dependencyName = dependency.split('/')[0];
-  var dependencyPath = path.resolve(nodeModulesDirectories, dependency);
+$.path.foundation.forEach((dependency) => {
+  const dependencyName = dependency.split('/')[0];
+  const dependencyPath = path.resolve(nodeModulesDirectories, dependency);
 
   webpackConfig.resolve.alias[dependencyName] = dependencyPath;
   webpackConfig.module.noParse.push(dependencyPath);
-  webpackConfig.entry.foundation.push(dependencyName)
+  webpackConfig.entry.foundation.push(dependencyName);
 });
 
 module.exports = validate(webpackConfig);
