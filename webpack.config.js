@@ -2,51 +2,47 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const validate = require('webpack-validator');
 
 const nodeModulesDirectories = path.join(__dirname, 'node_modules');
-const modulesDirectories = [nodeModulesDirectories];
+const modules = [nodeModulesDirectories];
 const inputPath = path.join(__dirname, './source/js/');
 
 const plugins = [
 
-  new webpack.NoErrorsPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
 
   new webpack.optimize.CommonsChunkPlugin({
     name: 'foundation',
     filename: 'foundation.js'
   }),
 
-  new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__' : '__PROD__') }),
-
-  new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery'
-  })
+  new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__' : '__PROD__') })
 ];
 
-const loaders = [
+const rules = [
 
-  { test: /\.html$/, loader: `ngtemplate?relativeTo=${inputPath}!html` },
-
-  { test: /\.json$/, loader: 'json' },
-
+  {
+    test: /\.html$/,
+    loader: `ngtemplate?relativeTo=${inputPath}!html`
+  },
   {
     test: /\.js$/,
     include: path.join(__dirname, 'source/js'),
-    loader: 'babel',
+    loader: 'babel-loader',
     query: {
       presets: ['es2015'],
       plugins: ['transform-runtime']
     }
+  },
+  {
+    test: /\.pug$/,
+    loader: 'pug-loader'
   }
 ];
 
 if (!$.dev) {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({
-      warnings: false,
       drop_console: true
     })
   );
@@ -75,32 +71,31 @@ const webpackConfig = {
   devtool: $.dev ? 'inline-source-map' : undefined,
 
   module: {
-    loaders,
+    rules,
     noParse: []
   },
 
   plugins,
 
   resolve: {
-    modulesDirectories,
-    extensions: ['', '.js'],
+    modules,
+    extensions: ['.js'],
     alias: {}
   },
 
   resolveLoader: {
-    modulesDirectories,
-    moduleTemplates: ['*-loader', '*'],
-    extensions: ['', '.js']
+    modules,
+    extensions: ['.js']
   }
 };
 
 $.path.foundation.forEach((dependency) => {
   const dependencyName = dependency.split('/')[0];
-  const dependencyPath = path.resolve(nodeModulesDirectories, dependency);
+const dependencyPath = path.resolve(nodeModulesDirectories, dependency);
 
-  webpackConfig.resolve.alias[dependencyName] = dependencyPath;
-  webpackConfig.module.noParse.push(dependencyPath);
-  webpackConfig.entry.foundation.push(dependencyName);
+webpackConfig.resolve.alias[dependencyName] = dependencyPath;
+webpackConfig.module.noParse.push(dependencyPath);
+webpackConfig.entry.foundation.push(dependencyName);
 });
 
-module.exports = validate(webpackConfig);
+module.exports = webpackConfig;
