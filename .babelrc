@@ -1,0 +1,35 @@
+{
+  "presets": [
+    "@babel/react",
+    "@babel/typescript",
+    [
+      "@babel/env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "babel-plugin-styled-components",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-redux-saga"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/react",
+        "@babel/typescript",
+        [
+          "@babel/env",
+          {
+            "modules": "commonjs"
+          }
+        ]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  }
+}
