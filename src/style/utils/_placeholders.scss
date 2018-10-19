@@ -1,0 +1,10 @@
+/**
+ *  For modern browsers
+ *  http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+
+%clearfix :after {
+  content: ' ';
+  display: table;
+  clear: both;
+}

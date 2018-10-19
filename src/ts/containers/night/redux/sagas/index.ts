@@ -1,0 +1,1 @@
+export { watchPhotoNight } from './photo';
