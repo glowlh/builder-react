@@ -5,7 +5,9 @@ import {
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './reducers'
+
 import * as NightWatchers from '../containers/night/redux/sagas';
+import * as DrumWatchers from '../containers/drum/redux/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,5 +18,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(NightWatchers.watchPhotoNight);
+sagaMiddleware.run(DrumWatchers.watchPhotoDrum);
 
 export default store;
