@@ -19,7 +19,7 @@ module.exports = (env) => ({
     host: 'localhost'
   },
   entry: {
-    'index': './src/ts/index.tsx'
+    'index': ['@babel/polyfill', './src/ts/index.tsx']
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -33,14 +33,7 @@ module.exports = (env) => ({
     rules: [
       {
         test: /\.tsx?$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [
-              'babel-plugin-redux-saga'
-            ]
-          }
-        },
+        use: 'babel-loader',
       },
       {
         enforce: 'pre',

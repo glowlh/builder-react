@@ -1,8 +1,8 @@
 import { createAction } from 'redux-actions';
 
-class ActionTypes {
+class Actions {
   static load = createAction('NIGHT/LOAD');
   static fetchLoad = createAction('NIGHT/FETCH_LOAD');
 }
 
-export default ActionTypes;
+export default Actions;

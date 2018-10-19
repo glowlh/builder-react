@@ -6,7 +6,7 @@ import {
 import Actions from '../actions';
 
 export function* watchPhotoNight() {
-  yield takeEvery(Actions.load().type, fetchPhotoNight);
+  yield takeEvery(Actions.fetchLoad().type, fetchPhotoNight);
 }
 
 function* fetchPhotoNight() {
@@ -15,7 +15,7 @@ function* fetchPhotoNight() {
       resolve('link')
     ));
 
-    yield put(Actions.load(photo));
+    yield put(Actions.load({ photo }));
   } catch (error) {
     console.warn(error);
   }

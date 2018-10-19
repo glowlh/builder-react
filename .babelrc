@@ -12,8 +12,7 @@
   "plugins": [
     "babel-plugin-styled-components",
     "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-class-properties",
-    "babel-plugin-redux-saga"
+    "@babel/plugin-proposal-class-properties"
   ],
   "env": {
     "test": {

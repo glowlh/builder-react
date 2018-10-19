@@ -1,3 +1,3 @@
 export interface INightReducer {
-  url?: string;
+  photo?: string;
 }
