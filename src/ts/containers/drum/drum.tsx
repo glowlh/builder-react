@@ -18,7 +18,10 @@ class Drum extends React.Component<IDrumProps, IDrumState> {
   render() {
     console.dir(this.props.photo);
     return (
-      <div>DRUM</div>
+      <>
+        <h1>PAGE DRUM</h1>
+        <img src={this.props.photo} height="500px" />
+      </>
     );
   }
 }
