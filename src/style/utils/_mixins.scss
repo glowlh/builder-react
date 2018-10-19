@@ -1,0 +1,66 @@
+/**
+ *  Mixins for media queries
+ *  @example
+ *
+ *  div {
+ *    @include tablets { ... }
+ *  }
+ */
+
+@mixin desktop-1 {
+  @media screen and (max-width: 1810px) {
+    @content;
+  }
+}
+
+@mixin desktop-2 {
+  @media screen and (max-width: 1680px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+/**
+ * Mixin for placeholder
+ */
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+}

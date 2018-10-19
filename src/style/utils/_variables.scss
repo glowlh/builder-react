@@ -1,0 +1,68 @@
+$app: 'srv';
+
+// -----------------------------------------
+// Fonts
+// -----------------------------------------
+
+$font-family-1:                             'Roboto', 'Arial', sans-serif;
+
+$font-thin:                                 100;
+$font-light:                                300;
+$font-regular:                              400;
+$font-medium:                               500;
+$font-semibold:                             600;
+$font-bold:                                 700;
+$font-black:                                900;
+
+
+// -----------------------------------------
+// Colors
+// -----------------------------------------
+
+$color-text-base:                           #3a405b;
+$color-text-neutral:                        #898b95;
+$color-disabled:                            #b9bed1;
+
+$color-default:                             #2BB563;
+$color-default-medium-dark:                 #239F55;
+$color-default-dark:                        #239F55;
+
+$color-primary:                             #eaba28;
+
+$color-info:                                #808080;
+$color-info-medium-dark:                    #5b5b5b;
+$color-info-dark:                           #4d4d4d;
+
+$color-danger:                              #fd5339;
+$color-danger-medium-dark:                  #dd4028;
+$color-danger-dark:                         #dd4028;
+
+$color-blue:                                #0f69ff;
+$color-blue-dark:                           #0a53cd;
+
+$color-violet:                              #9395d4;
+$color-violet-dark:                         #7d6dc9;
+
+$color-aqua:                                #51dde9;
+$color-aqua-dark:                           #00cedb;
+
+$color-gray-20:                             #202020;
+$color-gray-3b:                             #3b3b3b;
+$color-gray-80:                             #808080;
+$color-gray-a4:                             #a4a6a9;
+$color-gray-cc:                             #cccccc;
+$color-gray-dd:                             #dddddd;
+$color-gray-fa:                             #fafafa;
+$color-gray-57:                             #575757;
+
+
+// -----------------------------------------
+// Sizes
+// -----------------------------------------
+
+$field-height: 54px;
+$header-height: 56px;
+$template-editor-headers-height: 52px;
+$font-size-big: 16px;
+$font-size-base: 13px;
+$font-size-small: 12px;

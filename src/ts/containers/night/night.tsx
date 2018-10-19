@@ -16,9 +16,11 @@ class Night extends React.Component<INightProps, INightState> {
   }
 
   render() {
-    console.dir(this.props.photo);
     return (
-      <div>NIGHT</div>
+      <>
+        <h1>PAGE NIGHT</h1>
+        <img src={this.props.photo} height="500px" />
+      </>
     );
   }
 }

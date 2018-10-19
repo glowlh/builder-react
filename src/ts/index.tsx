@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './containers/app';
 import store from './redux/store';
-import '@babel/polyfill';
 
 ReactDOM.render(
   <Provider store={store}>
