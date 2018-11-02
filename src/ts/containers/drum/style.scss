@@ -1,0 +1,30 @@
+@import '../../../style/utils/variables';
+
+.#{$app}-drum {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 5px;
+    background-color: $color-gray-fa;
+    top: 0;
+    left: 520px;
+  }
+
+  &__title {
+    position: absolute;
+    z-index: 1;
+    bottom: 200px;
+    left: 405px;
+    font-weight: $font-bold;
+    font-size: 150px;
+    color: $color-gray-fa;
+    transform: rotate(-90deg);
+  }
+}
