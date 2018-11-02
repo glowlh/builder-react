@@ -16,6 +16,13 @@ module.exports = [
     loader: 'style-loader!css-loader!sass-loader',
   },
   {
+    test: /\.woff$|\.woff2?$|\.ttf$|\.eot$|\.otf$/,
+    loader: 'file-loader',
+    options: {
+      name: 'fonts/[name].[ext]',
+    },
+  },
+  {
     test: /\.(jpe?g|png|gif|svg)$/i,
     include: path.join(__dirname, '/'),
     loaders: [

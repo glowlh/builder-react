@@ -12,7 +12,7 @@ export function* watchPhotoDrum() {
 
 function* fetchPhotoDrum() {
   try {
-    const photo = yield call(() => Request.get('random'));
+    const photo = yield call(() => Request.get('random/1300x800'));
 
     yield put(Actions.load({ photo: photo.url }));
   } catch (error) {

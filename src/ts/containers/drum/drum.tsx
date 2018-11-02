@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Actions from './redux/actions';
+import './style.scss';
 
 interface IDrumProps {
   photo?: string;
@@ -17,10 +18,15 @@ class Drum extends React.Component<IDrumProps, IDrumState> {
 
   render() {
     return (
-      <>
-        <h1>PAGE DRUM</h1>
-        <img src={this.props.photo} height="500px" />
-      </>
+      <div className="app-prefix-drum">
+        <h1 className="app-prefix-drum__title">DRUM</h1>
+        <div
+          className="app-prefix-image app-prefix-image--full"
+          style={{
+            backgroundImage: `url(${this.props.photo})`
+          }}
+        />
+      </div>
     );
   }
 }

@@ -12,7 +12,7 @@ export function* watchPhotoNight() {
 
 function* fetchPhotoNight() {
   try {
-    const photo = yield call(() => Request.get('random'));
+    const photo = yield call(() => Request.get('random/600x800'));
 
     yield put(Actions.load({ photo: photo.url }));
   } catch (error) {

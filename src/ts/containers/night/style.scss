@@ -1,0 +1,41 @@
+@import '../../../style/utils/variables';
+
+.#{$app}-night {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 5px;
+    background-color: $color-gray-fa;
+    top: 0;
+    left: 25%;
+  }
+
+  &__left {
+    position: relative;
+    background-color: #3a405b;
+    height: 100%;
+    width: 25%;
+  }
+
+  &__right {
+    width: 75%;
+  }
+
+  &__title {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 50px;
+    font-weight: $font-bold;
+    font-size: 150px;
+    color: $color-gray-fa;
+  }
+}

@@ -1,10 +1,10 @@
-$app: 'srv';
+$app: 'app-prefix';
 
 // -----------------------------------------
 // Fonts
 // -----------------------------------------
 
-$font-family-1:                             'Roboto', 'Arial', sans-serif;
+$font-family-1:                             'PTSans', 'Arial', sans-serif;
 
 $font-thin:                                 100;
 $font-light:                                300;
@@ -24,17 +24,14 @@ $color-text-neutral:                        #898b95;
 $color-disabled:                            #b9bed1;
 
 $color-default:                             #2BB563;
-$color-default-medium-dark:                 #239F55;
 $color-default-dark:                        #239F55;
 
 $color-primary:                             #eaba28;
 
 $color-info:                                #808080;
-$color-info-medium-dark:                    #5b5b5b;
 $color-info-dark:                           #4d4d4d;
 
 $color-danger:                              #fd5339;
-$color-danger-medium-dark:                  #dd4028;
 $color-danger-dark:                         #dd4028;
 
 $color-blue:                                #0f69ff;
@@ -60,9 +57,6 @@ $color-gray-57:                             #575757;
 // Sizes
 // -----------------------------------------
 
-$field-height: 54px;
-$header-height: 56px;
-$template-editor-headers-height: 52px;
 $font-size-big: 16px;
 $font-size-base: 13px;
 $font-size-small: 12px;
