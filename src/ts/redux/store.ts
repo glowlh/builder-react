@@ -4,7 +4,7 @@ import {
   compose,
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import reducers from './reducers'
+import reducers from './reducers';
 
 import * as NightWatchers from '../containers/night/redux/sagas';
 import * as DrumWatchers from '../containers/drum/redux/sagas';

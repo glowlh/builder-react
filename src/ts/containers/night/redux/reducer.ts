@@ -1,4 +1,4 @@
-import {handleActions} from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import Actions from './actions';
 import { INightReducer } from './interfaces/reduces';
 
