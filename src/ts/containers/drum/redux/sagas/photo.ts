@@ -5,7 +5,7 @@ import {
 } from 'redux-saga/effects';
 import Actions from '../actions';
 import Request, { RESPONSE_TYPE } from '../../../../end-points/base-request';
-import {mapGetPhoto} from '../../../../end-points/mapper/photo';
+import { mapGetPhoto } from '../../../../end-points/mapper/photo';
 
 export function* watchPhotoDrum() {
   yield takeEvery(Actions.fetchLoad().type, fetchPhotoDrum);
