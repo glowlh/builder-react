@@ -42,6 +42,7 @@
     "import-name": false,
     "newline-before-return": false,
     "no-bitwise": false,
+    "no-console": [true, "log", "error", "dir"],
     "no-any": false,
     "no-boolean-literal-compare": false,
     "no-empty-interface": false,

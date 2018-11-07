@@ -1,8 +1,16 @@
 import { BASE_URL } from './api';
 
+export const RESPONSE_TYPE = {
+  json: 'json',
+  blob: 'blob',
+  text: 'text',
+  arrayBuffer: 'arrayBuffer',
+  formData: 'formData',
+};
+
 export default class Request {
 
-  static get(url: string) {
+  static get(url: string, responseType: string = RESPONSE_TYPE.json) {
     return fetch(
       `${BASE_URL}/${url}`,
       {
@@ -10,10 +18,10 @@ export default class Request {
         mode: 'cors',
       },
     )
-      .then((response: any) => response);
+      .then((response: any) => response[responseType]());
   }
 
-  static post(url: string, body: any) {
+  static post(url: string, body: any, responseType: string = RESPONSE_TYPE.json) {
     return fetch(
       `${BASE_URL}/${url}`,
       {
@@ -26,6 +34,6 @@ export default class Request {
         body: JSON.stringify(body),
       },
     )
-      .then(response => response.json());
+      .then((response: any) => response[responseType]());
   }
 }
