@@ -46,7 +46,7 @@ module.exports = [
     test: /\.ts(x?)$/,
     enforce: 'pre',
     loader: 'tslint-loader',
-    exclude: '/node_modules/',
+    exclude: [/node_modules/],
     options: {
       tsConfigFile: 'tsconfig.json',
       emitErrors: hasLinter,

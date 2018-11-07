@@ -26,7 +26,7 @@ class Night extends React.Component<INightProps, INightState> {
           <div
             className="app-prefix-image app-prefix-image--full"
             style={{
-              backgroundImage: `url(${this.props.photo})`
+              backgroundImage: `url(${this.props.photo})`,
             }}
           />
         </div>
